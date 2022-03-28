@@ -1,8 +1,10 @@
 # DE10 NANO - ON CHIP RAM 
 In this project I write to HPS-RAM from fpga with bridge F2H axi bridge and read it from hps with C code.
 Also I solved 1 big problem - 
-THE PROBLEM : if you want to transmit data from fpga all the time (like fft data) to hps you can't without losing information, becuse the HPS give you "waitrequest". 
-THE SOLUTION : create MEMORY on fpga before transmit the data. (update the MEMORY all the time and hps always will recive the most up-to-date data).
+
+**THE PROBLEM** : if you want to transmit data from fpga all the time (like fft data) to hps you can't without losing information, becuse the HPS give you "waitrequest".
+
+**THE SOLUTION** : create MEMORY on fpga before transmit the data. (update the MEMORY all the time and hps always will recive the most up-to-date data).
 
 The physical address of HPS-OCR is : 0xFFFF0000 - 0xFFFFFFFF (also you can see it in the image down below).
 In QSYS F2H axi bridge start from 0x0 and this address is the real start physical address. So, to write data to HPS-OCR from F2H axi bridge the address of HPS-OCR is also start from 0xFFFF0000.
